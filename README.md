@@ -78,6 +78,9 @@ Examples:
     Babel==2.11.0     # Must be version 2.11.0
     Babel>=2.11.0     # Minimum version 2.11.0
     Babel!=2.11.0     # Anything except version 2.11.0
+    'Babel<2.11.0'    # Anything earlier than version 2.11.0
+
+Note that when you use < or > you must wrap it in single quotes, as these characters have special meaning on the command line
 
 How is this file used? Let's pretend we are another member of the dev team, with our own separate environment. So let's deactivate our current environment and start up a separate environment (we will pretend this is on another machine)
 
@@ -97,3 +100,10 @@ Now deactivate the environment
 
     deactivate
 
+---
+### Next Steps
+In this example we have placed our virtual env under subfolders within the project. You may find that many people will actually create the virtual env directly under the project folder itself. Also, many people will name it as 'venv' like so
+
+    python -m venv venv
+
+You can use a package called 'tox' to check that your project runs against multiple versions of Python. This will basically create a virtual env for each Python version it is configured to run against, and that you have installed on your machine. It can create the env, run the unit tests, then repeat for each version and give you output from the unit tests.
