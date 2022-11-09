@@ -107,3 +107,16 @@ In this example we have placed our virtual env under subfolders within the proje
     python -m venv venv
 
 You can use a package called 'tox' to check that your project runs against multiple versions of Python. This will basically create a virtual env for each Python version it is configured to run against, and that you have installed on your machine. It can create the env, run the unit tests, then repeat for each version and give you output from the unit tests.
+
+You can use **virtualenvwrapper** to manage multiple environments and switch between projects. 
+This can allow you to work on more than one project at a time without introducing conflicts
+in their dependencies.
+
+---
+### Choosing the right tools
+One thing that can present a problem with the requirements file is when you start to get more complex projects. If it includes two packages who both reference the same dependent package BUT require different versions of that dependency. The outcome of the requirements file isn't deterministic, so if two people have the same file you can't be sure they will load exactly the same way unless you also list every sub-dependency of every package in the file.
+
+To that end, there are some alternatives:
+- **pipenv** uses its own file format called pipfile. The important thing here is this file is deterministic, so yuo can be sure everyone on the team has exactly the same set of packages installed.
+- **pyproject.toml** is a text-based format sort of like an ini file in Windows. One of the tools that it uses is called **poetry**. Pyproject is actually a standard for specifying project requirements (PEP-518) and this is also deterministic.
+
